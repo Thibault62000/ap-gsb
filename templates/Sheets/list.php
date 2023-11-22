@@ -19,7 +19,7 @@ $iduser = $identity["id"]
     <h3><?= __('Sheets') ?></h3>
     <div class="table-responsive">
         <table>
-            <?= $this->users->first_name ?>
+            <?= $identity['username'] ?>
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
