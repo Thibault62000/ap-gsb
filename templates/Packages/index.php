@@ -21,7 +21,7 @@
                 <?php foreach ($packages as $package): ?>
                 <tr>
                     <td><?= $this->Number->format($package->id) ?></td>
-                    <td><?= $this->Number->format($package->price) ?></td>
+                    <td><?= $this->Number->format($package->price) ?>€</td>
                     <td><?= h($package->title) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $package->id]) ?>

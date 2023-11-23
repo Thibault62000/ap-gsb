@@ -23,7 +23,7 @@
                 <tr>
                     <td><?= $this->Number->format($outpackage->id) ?></td>
                     <td><?= h($outpackage->date) ?></td>
-                    <td><?= $this->Number->format($outpackage->price) ?></td>
+                    <td><?= $this->Number->format($outpackage->price) ?>€</td>
                     <td><?= h($outpackage->title) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $outpackage->id]) ?>

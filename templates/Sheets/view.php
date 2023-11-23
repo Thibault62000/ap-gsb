@@ -50,7 +50,6 @@
                     <table>
                         <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Date') ?></th>
                             <th><?= __('Price') ?></th>
                             <th><?= __('Title') ?></th>
                             <th><?= __('Body') ?></th>
@@ -59,8 +58,7 @@
                         <?php foreach ($sheet->outpackages as $outpackages) : ?>
                         <tr>
                             <td><?= h($outpackages->id) ?></td>
-                            <td><?= h($outpackages->date) ?></td>
-                            <td><?= h($outpackages->price) ?></td>
+                            <td><?= h($outpackages->price) ?>€</td>
                             <td><?= h($outpackages->title) ?></td>
                             <td><?= h($outpackages->body) ?></td>
                             <td class="actions">
@@ -89,7 +87,7 @@
                         <?php foreach ($sheet->packages as $packages) : ?>
                         <tr>
                             <td><?= h($packages->id) ?></td>
-                            <td><?= h($packages->price) ?></td>
+                            <td><?= h($packages->price) ?>€</td>
                             <td><?= h($packages->title) ?></td>
                             <td><?= h($packages->body) ?></td>
                             <td class="actions">
