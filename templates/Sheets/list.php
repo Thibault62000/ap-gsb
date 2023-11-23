@@ -26,7 +26,7 @@ $iduser = $identity["id"]
     <?= $this->Form->end() ?>
     <div class="table-responsive">
         <table>
-            <?= $this->users->first_name ?>
+        <?= $identity['username'] ?>
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
