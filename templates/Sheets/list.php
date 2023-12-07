@@ -8,6 +8,7 @@
  * $sheet->has('user') ? $this->Html->link($sheet->user->username, ['controller' => 'Users', 'action' => 'view', $sheet->user->id]) : ''
  */
 
+use Cake\Http\Client;
 
 $identity = $this->getRequest()->getAttribute('identity');
 $identity = $identity ?? [];

@@ -44,7 +44,7 @@
                 </tr>
             </table>
             <div class="related">
-                <h4><?= __('Related Outpackages') ?></h4>
+                <h4><?= __('Prix HorsPackages') ?></h4>
                 <?php if (!empty($sheet->outpackages)) : ?>
                 <div class="table-responsive">
                     <table>
@@ -73,7 +73,7 @@
                 <?php endif; ?>
             </div>
             <div class="related">
-                <h4><?= __('Related Packages') ?></h4>
+                <h4><?= __('Prix en Packages') ?></h4>
                 <?php if (!empty($sheet->packages)) : ?>
                 <div class="table-responsive">
                     <table>

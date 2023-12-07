@@ -5,7 +5,7 @@
  */
 ?>
 <div class="sheets index content">
-    <?= $this->Html->link(__('New Sheet'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('New Sheet'), ['action' => 'clientadd'], ['class' => 'button float-right']) ?>
     <h3><?= __('Sheets') ?></h3>
     <div class="table-responsive">
         <table>
