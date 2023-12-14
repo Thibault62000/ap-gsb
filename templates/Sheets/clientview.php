@@ -117,7 +117,7 @@ $total_outpackage = 0;
                 <h4 class="float-left"><?= __('Related Outpackages') ?></h4>
                 <?php if($sheet->state->id == 1): ?>
                     <?php if($sheet->sheetvalidated == false): ?>
-                        <?= $this->Html->link('New horsforfait', ['controller' => 'Outpackages', $sheet->id], ['class' => 'button float-right']) ?>
+                        <?= $this->Html->link('New horsforfait', ['controller' => 'Outpackages', 'action' => 'add', $sheet->id], ['class' => 'button float-right']) ?>
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php if (!empty($sheet->outpackages)) : ?>
@@ -125,10 +125,9 @@ $total_outpackage = 0;
                     <table>
                         <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Date') ?></th>
-                            <th><?= __('Price') ?></th>
                             <th><?= __('Title') ?></th>
                             <th><?= __('Body') ?></th>
+                            <th><?= __('Price') ?></th>
                             <?php if($sheet->state->id == 1): ?>
                                 <?php if($sheet->sheetvalidated == false): ?>
                                     <th class="actions"><?= __('Actions') ?></th>
@@ -138,7 +137,6 @@ $total_outpackage = 0;
                         <?php foreach ($sheet->outpackages as $outpackages) : ?>
                         <tr>
                             <td><?= h($outpackages->id) ?></td>
-                            <td><?= h($outpackages->date) ?></td>
                             <td><?= h($outpackages->price) ?> €</td>
                             <td><?= h($outpackages->title) ?></td>
                             <!-- Limiter la taille du champ body à 100 caractères -->

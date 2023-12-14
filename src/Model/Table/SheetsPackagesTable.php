@@ -28,8 +28,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\SheetsPackage[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\SheetsPackage[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
-class SheetsPackagesTable extends Table
-{
+class SheetsPackagesTable extends Table {
     /**
      * Initialize method
      *
