@@ -52,7 +52,7 @@ $roleuser = $identity["is_superuser"];
             echo $this->Html->Link('My sheets', ['plugin' => NULL, 'controller' => 'Sheets', 'action' => 'list']);
             echo $this->Html->Link('Packages', ['plugin' => NULL, 'controller' => 'packages', 'action' => 'index']);
             echo $this->Html->Link('Out packages', ['plugin' => NULL, 'controller' => 'outpackages', 'action' => 'index']);
-            echo $this->Html->Link('Comptable Panel', ['plugin' => NULL, 'controller' => 'comptable', 'action' => 'index']);
+            echo $this->Html->Link('Comptable Panel', ['plugin' => NULL, 'controller' => 'sheets', 'action' => 'comptablelist']);
             if(isset($roleuser) && !empty($roleuser)){
                 if($roleuser == true){
                     echo $this->Html->Link('Admin panel', ['plugin' => NULL, 'controller' => 'Pages', 'action' => 'adminpanel']);

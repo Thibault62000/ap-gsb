@@ -203,6 +203,21 @@ class SheetsController extends AppController
             return $this->redirect(['action' => 'index']); // Redirect to the appropriate action
         }
     }
+    public function comptablelist()
+    {
+
+        $this->paginate = [
+            'contain' => ['Users', 'States'],
+        ];
+
+        $identity = $this->getRequest()->getAttribute('identity');
+        $identity = $identity ?? [];
+        $iduser = $identity["id"];
+
+        $sheets = $this->paginate($this->Sheets->find('all')->where(['user_id' => $iduser]));
+
+        $this->set(compact('sheets'));
+    }
     public function clientview($id = null)
     {
         
