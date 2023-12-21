@@ -8,7 +8,7 @@
  * @copyright Copyright 2010 - 2018, Cake Development Corporation (https://www.cakedc.com)
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
+ 
 /*
  * IMPORTANT:
  * This is an example configuration file. Copy this file into your config directory and edit to
@@ -48,7 +48,7 @@
         }
     ],
  */
-
+ 
 return [
     'CakeDC/Auth.permissions' => [
         //all bypass
@@ -84,6 +84,7 @@ return [
                 'webauthn2faRegisterOptions',
                 'webauthn2faAuthenticate',
                 'webauthn2faAuthenticateOptions',
+                '',
             ],
             'bypassAuth' => true,
         ],
@@ -95,6 +96,32 @@ return [
                 'validateAccount',
                 'resendValidation',
             ],
+            'bypassAuth' => true,
+        ],
+   
+        [
+            'role'=>'user',
+            'prefix' => false,
+            'plugin' => null, // Assuming the controller is not in a plugin
+            'controller' => 'Sheets',
+            'action' => ['clientview','edit','add','list','delete'],
+            'bypassAuth' => true,
+        ],
+        [
+            'role'=>'user',
+            'prefix' => false,
+            'plugin' => null, // Assuming the controller is not in a plugin
+            'controller' => 'Outpackages',
+            'action' => ['add','deleteoutpackages'],
+            'bypassAuth' => true,
+        ],
+ 
+        [
+            'role'=>'comptable',
+            'prefix' => false,
+            'plugin' => null, // Assuming the controller is not in a plugin
+            'controller' => 'Sheets',
+            'action' => ['comptableview','comptablelist,edit'],
             'bypassAuth' => true,
         ],
         //admin role allowed to all the things
@@ -123,7 +150,7 @@ return [
                 if (!empty($userId) && !empty($user)) {
                     return $userId === $user['id'];
                 }
-
+ 
                 return false;
             }
         ],

@@ -117,7 +117,7 @@ class SheetsController extends AppController
             if ($this->Sheets->save($sheet)) {
                 $this->Flash->success(__('The sheet has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'comptablelist']);
             }
             $this->Flash->error(__('The sheet could not be saved. Please, try again.'));
         }
@@ -247,6 +247,36 @@ class SheetsController extends AppController
             }
         }
 
+        $this->set(compact('sheet'));
+    }public function comptableview($id = null)
+    {
+    
+        $sheet = $this->Sheets->get($id, [
+            'contain' => ['Users', 'States', 'Outpackages', 'Packages'],
+        ]);
+    
+        if ($this->request->is('post')) {
+            $postData = $this->request->getData();
+    
+            if (isset($postData['packages'])) {
+                foreach ($postData['packages'] as $packageId => $packageData) {
+                    // Vérifie que la quantité est définie
+                    if (isset($packageData['quantity'])) {
+                        $quantity = $packageData['quantity'];
+    
+                        // Met à jour la table d'association SheetsPackages
+                        $this->Sheets->Packages->SheetsPackages->updateAll(
+                            ['quantity' => $quantity],
+                            ['sheet_id' => $id, 'package_id' => $packageId]
+                        );
+    
+                    }
+                }
+                $this->Flash->success(__('La quantité a été mise à jour.'));
+                return $this->redirect(['action' => 'clientview', $id]);
+            }
+        }
+    
         $this->set(compact('sheet'));
     }
 
