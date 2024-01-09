@@ -31,10 +31,10 @@ $iduser = $identity["id"]
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('state_id') ?></th>
-                    <th><?= $this->Paginator->sort('sheetvalidated') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
+                    <th><?= $this->Paginator->sort('statue id') ?></th>
+                    <th><?= $this->Paginator->sort('Fiche valider') ?></th>
+                    <th><?= $this->Paginator->sort('Créer') ?></th>
+                    <th><?= $this->Paginator->sort('Modifier') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -42,12 +42,12 @@ $iduser = $identity["id"]
                 <?php foreach ($sheets as $sheet): ?>
                     <tr>
                         <td><?= $this->Number->format($sheet->id) ?></td>
-                        <td><?= $sheet->has('state') ? $this->Html->link($sheet->state->state, ['controller' => 'States', 'action' => 'view', $sheet->state->id]) : '' ?></td>
+                        <td><?= $sheet->has('Statue') ? $this->Html->link($sheet->state->state, ['controller' => 'States', 'action' => 'view', $sheet->state->id]) : '' ?></td>
                         <td><?= h($sheet->sheetvalidated) ?></td>
                         <td><?= h($sheet->created) ?></td>
                         <td><?= h($sheet->modified) ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'clientview', $sheet->id]) ?>
+                            <?= $this->Html->link(__('Vue'), ['action' => 'clientview', $sheet->id]) ?>
                             <?php if($sheet->state->id === 1): ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $sheet->id]) ?>
                             <?php endif; ?>
@@ -60,11 +60,11 @@ $iduser = $identity["id"]
     </div>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('Premiére')) ?>
+            <?= $this->Paginator->prev('< ' . __('Précédente')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('Suivante') . ' >') ?>
+            <?= $this->Paginator->last(__('Derniére') . ' >>') ?>
         </ul>
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>

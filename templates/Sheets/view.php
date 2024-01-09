@@ -62,9 +62,9 @@
                             <td><?= h($outpackages->title) ?></td>
                             <td><?= h($outpackages->body) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Outpackages', 'action' => 'view', $outpackages->id]) ?>
+                                <?= $this->Html->link(__('Vue'), ['controller' => 'Outpackages', 'action' => 'view', $outpackages->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Outpackages', 'action' => 'edit', $outpackages->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Outpackages', 'action' => 'delete', $outpackages->id], ['confirm' => __('Are you sure you want to delete # {0}?', $outpackages->id)]) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Outpackages', 'action' => 'delete', $outpackages->id], ['confirm' => __('Are you sure you want to delete # {0}?', $outpackages->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -79,9 +79,9 @@
                     <table>
                         <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Price') ?></th>
-                            <th><?= __('Title') ?></th>
-                            <th><?= __('Body') ?></th>
+                            <th><?= __('Prix') ?></th>
+                            <th><?= __('Titre') ?></th>
+                            <th><?= __('Description') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($sheet->packages as $packages) : ?>
@@ -91,9 +91,9 @@
                             <td><?= h($packages->title) ?></td>
                             <td><?= h($packages->body) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Packages', 'action' => 'view', $packages->id]) ?>
+                                <?= $this->Html->link(__('Vue'), ['controller' => 'Packages', 'action' => 'view', $packages->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Packages', 'action' => 'edit', $packages->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Packages', 'action' => 'delete', $packages->id], ['confirm' => __('Are you sure you want to delete # {0}?', $packages->id)]) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Packages', 'action' => 'delete', $packages->id], ['confirm' => __('Are you sure you want to delete # {0}?', $packages->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
