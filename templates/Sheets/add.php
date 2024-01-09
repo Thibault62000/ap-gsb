@@ -10,14 +10,14 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Sheets'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Liste Fiche'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="sheets form content">
             <?= $this->Form->create($sheet) ?>
             <fieldset>
-                <legend><?= __('Add Sheet') ?></legend>
+                <legend><?= __('Nouvelle fiche') ?></legend>
                 <?php
                     echo $this->Form->control('user_id', ['options' => $users, 'empty' => false]);
                     echo $this->Form->control('state_id', ['options' => $states]);

@@ -55,7 +55,7 @@ $roleuser = $identity["is_superuser"];
             echo $this->Html->Link('Accés Comptable', ['plugin' => NULL, 'controller' => 'sheets', 'action' => 'comptablelist']);
             if(isset($roleuser) && !empty($roleuser)){
                 if($roleuser == true){
-                    echo $this->Html->Link('Accés Comptable', ['plugin' => NULL, 'controller' => 'Pages', 'action' => 'adminpanel']);
+                    echo $this->Html->Link('Accés Admin', ['plugin' => NULL, 'controller' => 'Pages', 'action' => 'adminpanel']);
                     echo $this->Html->Link('Profil', ['plugin' => 'CakeDC/Users','controller' => 'Users', 'action' => 'profile']);
                     echo $this->Html->Link('Déconnexion' , ['plugin' => 'CakeDC/Users', 'controller' => 'Users', 'action' => 'logout'], ['onclick' => "return confirm('Etes-vous sûr de vouloir vous déconnecter ?')"]);
                 }elseif($roleuser == false){
