@@ -11,10 +11,10 @@
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $package->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $package->id), 'class' => 'side-nav-item']
+                ['action' => 'Supprimer', $package->id],
+                ['confirm' => __('Êtes-vous sûr de vouloir cette fiche qui a pour numéro # {0}?', $package->id), 'class' => 'side-nav-item']
             ) ?>
-            <?= $this->Html->link(__('List Packages'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Listes Packages'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -23,10 +23,10 @@
             <fieldset>
                 <legend><?= __('Edit Package') ?></legend>
                 <?php
-                    echo $this->Form->control('price');
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('body');
-                    echo $this->Form->control('sheets._ids', [
+                    echo $this->Form->control('Prix');
+                    echo $this->Form->control('Titre');
+                    echo $this->Form->control('Description');
+                    echo $this->Form->control('Numéro de fiche', [
                         'options' => [$this->request->getParam('pass.0') => $this->request->getParam('pass.0')],
                         'empty' => true,
                         'value' => $this->request->getParam('pass.0')

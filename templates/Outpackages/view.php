@@ -8,10 +8,10 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Outpackage'), ['action' => 'edit', $outpackage->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Outpackage'), ['action' => 'delete', $outpackage->id], ['confirm' => __('Are you sure you want to delete # {0}?', $outpackage->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Outpackages'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Outpackage'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Edite Hors Forfait'), ['action' => 'edit', $outpackage->id], ['class' => 'side-nav-item']) ?>
+            <?= $this->Form->postLink(__('Supprimer Hors Forfait'), ['action' => 'delete', $outpackage->id], ['confirm' => __('Are you sure you want to delete # {0}?', $outpackage->id), 'class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Liste Hors Forfait'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Nouveau Hors Forfait'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -19,7 +19,7 @@
             <h3><?= h($outpackage->title) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Title') ?></th>
+                    <th><?= __('Titre') ?></th>
                     <td><?= h($outpackage->title) ?></td>
                 </tr>
                 <tr>
@@ -27,7 +27,7 @@
                     <td><?= $this->Number->format($outpackage->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Price') ?></th>
+                    <th><?= __('Prix') ?></th>
                     <td><?= $this->Number->format($outpackage->price) ?></td>
                 </tr>
                 <tr>
@@ -36,7 +36,7 @@
                 </tr>
             </table>
             <div class="text">
-                <strong><?= __('Body') ?></strong>
+                <strong><?= __('Description') ?></strong>
                 <blockquote>
                     <?= $this->Text->autoParagraph(h($outpackage->body)); ?>
                 </blockquote>
@@ -48,11 +48,11 @@
                     <table>
                         <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('User Id') ?></th>
-                            <th><?= __('State Id') ?></th>
-                            <th><?= __('Sheetvalidated') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
+                            <th><?= __('Id utilisateur') ?></th>
+                            <th><?= __('Etat Id') ?></th>
+                            <th><?= __('FicheValider') ?></th>
+                            <th><?= __('Créer') ?></th>
+                            <th><?= __('Modifier') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($outpackage->sheets as $sheets) : ?>
@@ -64,9 +64,9 @@
                             <td><?= h($sheets->created) ?></td>
                             <td><?= h($sheets->modified) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Sheets', 'action' => 'view', $sheets->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Sheets', 'action' => 'edit', $sheets->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Sheets', 'action' => 'delete', $sheets->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sheets->id)]) ?>
+                                <?= $this->Html->link(__('Voir'), ['controller' => 'Sheets', 'action' => 'view', $sheets->id]) ?>
+                                <?= $this->Html->link(__('Edits'), ['controller' => 'Sheets', 'action' => 'edit', $sheets->id]) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Sheets', 'action' => 'delete', $sheets->id], ['confirm' => __('Are you sure you want to delete # {0}?', $sheets->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
