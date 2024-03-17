@@ -21,6 +21,7 @@ $identity = $identity ?? [];
 if ($identity) {
 $iduser = $identity["id"];
 $roleuser = $identity["is_superuser"];
+$roleuser_name = $identity["role"];
 }
 
 ?>
@@ -36,47 +37,57 @@ $roleuser = $identity["is_superuser"];
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
+    <?= $this->Html->script(['app.js']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
 </head>
 <body>
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Gsb</span>PHP</a>
+            <a href="<?= $this->Url->build('/') ?>"><span>AP</span>GSB</a>
         </div>
         <div class="top-nav-links">
         <?php
-            echo $this->Html->Link('Acceuil', ['plugin' => NULL, 'controller' => 'Pages', 'action' => 'home']);
-            echo $this->Html->Link('Mes fiches', ['plugin' => NULL, 'controller' => 'Sheets', 'action' => 'list']);
-            echo $this->Html->Link('Forfaits', ['plugin' => NULL, 'controller' => 'packages', 'action' => 'index']);
-            echo $this->Html->Link('Hors Forfaits', ['plugin' => NULL, 'controller' => 'outpackages', 'action' => 'index']);
-            echo $this->Html->Link('Accés Comptable', ['plugin' => NULL, 'controller' => 'sheets', 'action' => 'comptablelist']);
-            if(isset($roleuser) && !empty($roleuser)){
+            echo $this->Html->Link('Accueil', ['plugin' => NULL, 'controller' => 'Pages', 'action' => 'home']);
+            if(isset($roleuser_name) && !empty($roleuser_name)){
                 if($roleuser == true){
-                    echo $this->Html->Link('Accés Admin', ['plugin' => NULL, 'controller' => 'Pages', 'action' => 'adminpanel']);
-                    echo $this->Html->Link('Profil', ['plugin' => 'CakeDC/Users','controller' => 'Users', 'action' => 'profile']);
+                    echo $this->Html->Link('Mes fiches', ['plugin' => NULL, 'controller' => 'Sheets', 'action' => 'list']);
+                    echo $this->Html->Link('Listes fiches', ['plugin' => NULL, 'controller' => 'Sheets', 'action' => 'list']);
+                    echo $this->Html->Link('Panneau Admin', ['plugin' => NULL, 'controller' => 'Pages', 'action' => 'adminpanel']);
+                    echo $this->Html->Link('Profile', ['plugin' => 'CakeDC/Users','controller' => 'Users', 'action' => 'profile']);
                     echo $this->Html->Link('Déconnexion' , ['plugin' => 'CakeDC/Users', 'controller' => 'Users', 'action' => 'logout'], ['onclick' => "return confirm('Etes-vous sûr de vouloir vous déconnecter ?')"]);
-                }elseif($roleuser == false){
-                    echo $this->Html->Link('Profil', ['plugin' => 'CakeDC/Users','controller' => 'Users', 'action' => 'profile']);
+                }elseif($roleuser == false){    
+                    if($roleuser_name == "comptable"){
+                        echo $this->Html->Link('Fiches comptable', ['plugin' => NULL, 'controller' => 'Sheets', 'action' => 'comptablelist']);
+                    }else{
+                        echo $this->Html->Link('Mes Fiches', ['plugin' => NULL, 'controller' => 'Sheets', 'action' => 'list']);
+                       
+                    }
+                    echo $this->Html->Link('Mon profil', ['plugin' => 'CakeDC/Users','controller' => 'Users', 'action' => 'profile']);
                     echo $this->Html->Link('Déconnexion' , ['plugin' => 'CakeDC/Users', 'controller' => 'Users', 'action' => 'logout'], ['onclick' => "return confirm('Etes-vous sûr de vouloir vous déconnecter ?')"]);
                 }
+                
             }else{
-                echo $this->Html->Link('Connexion', ['plugin' => 'CakeDC/Users','Controller'=> 'Users','action'=> 'login'] );
+                echo $this->Html->Link('Connexion', ['plugin' => 'CakeDC/Users','controller'=> 'Users','action'=> 'login'] );
             }
-
         ?>
         </div>
     </nav>
     <main class="main">
         <div class="container">
             <?= $this->Flash->render() ?>
-
             <?= $this->fetch('content') ?>
         </div>
     </main>
     <footer>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
     </footer>
 </body>
 </html>

@@ -59,7 +59,7 @@ class LoginTraitIntegrationTest extends TestCase
         $this->get('/pages/home');
 
         $this->assertRedirectContains('/login?redirect=%2Fpages%2Fhome');
-        $this->assertFlashMessage('You are not authorized to access that location.');
+        $this->assertFlashMessage('Cette accées ne vous ait pas autoriser.');
     }
 
     public function testRedirectToLoginDebug()
@@ -69,7 +69,7 @@ class LoginTraitIntegrationTest extends TestCase
         $this->get('/pages/home');
 
         $this->assertRedirectContains('/login?redirect=%2Fpages%2Fhome');
-        $this->assertFlashMessage('You are not authorized to access that location.Location = http://localhost/pages/home');
+        $this->assertFlashMessage('Cette accées ne vous ait pas autoriser = http://localhost/pages/home');
     }
 
     /**
