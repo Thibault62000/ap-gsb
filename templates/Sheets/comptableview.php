@@ -53,6 +53,15 @@ $total_outpackage = 0;
                     <td><?= $sheet->sheetvalidated ? __('Yes') : __('No'); ?></td>
                 </tr>
             </table>
+            <?php if($sheet->sheetvalidated == false): ?>
+                <?= $this->Form->create($sheet, ['url' => ['controller' => 'Sheets', 'action' => 'validate', $sheet->id]]) ?>
+                    <?= $this->Form->button(__('Validate Sheet'), ['type' => 'submit', 'style' => 'margin: 15px 0;', 'confirm' => __('Are you sure you want to validate this sheet?')]) ?>
+                <?= $this->Form->end() ?>
+            <?php elseif($sheet->sheetvalidated == true): ?>
+                <?= $this->Form->create($sheet, ['url' => ['controller' => 'Sheets', 'action' => 'unvalidate', $sheet->id]]) ?>
+                    <?= $this->Form->button(__('Unvalidate Sheet'), ['type' => 'submit', 'style' => 'margin: 15px 0']) ?>
+                <?= $this->Form->end() ?>
+            <?php endif; ?>
             
             <div class="related">
                 <h4 class="float-left"><?= __('Related Packages') ?></h4>
@@ -124,6 +133,7 @@ $total_outpackage = 0;
                             <th><?= __('Title') ?></th>
                             <th><?= __('Body') ?></th>
                             <th><?= __('Price') ?></th>
+                           
                             <?php if($sheet->state->id == 1): ?>
                                 <?php if($sheet->sheetvalidated == false): ?>
                                     <th class="actions"><?= __('Actions') ?></th>
@@ -139,6 +149,10 @@ $total_outpackage = 0;
                             <td title="<?= h($outpackages->body) ?>">
                                 <?= h(substr($outpackages->body, 0, 100)) ?> ...
                             </td>
+                            
+                
+            
+
                             <?php if($sheet->state->id == 1): ?>
                                 <?php if($sheet->sheetvalidated == false): ?>
                                     <td class="actions">

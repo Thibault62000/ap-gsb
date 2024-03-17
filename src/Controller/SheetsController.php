@@ -205,7 +205,6 @@ class SheetsController extends AppController
     }
     public function comptablelist()
     {
-
         $this->paginate = [
             'contain' => ['Users', 'States'],
         ];
@@ -214,9 +213,14 @@ class SheetsController extends AppController
         $identity = $identity ?? [];
         $iduser = $identity["id"];
 
-        $sheets = $this->paginate($this->Sheets->find('all')->where(['user_id' => $iduser]));
+        $sheets = $this->paginate(
+            $this->Sheets->find('all')->where(['state_id >=' => 2,'state_id <=' => 4])
+        );
 
-        $this->set(compact('sheets'));
+        $users = $this->Sheets->Users->find('list', ['limit' => 200])->all();
+        $states = $this->Sheets->States->find('list', ['limit' => 200])->all();
+
+        $this->set(compact('sheets', 'users', 'states'));
     }
     public function clientview($id = null)
     {
@@ -278,6 +282,28 @@ class SheetsController extends AppController
         }
     
         $this->set(compact('sheet'));
+    }
+    public function validate($id = null)
+    {
+        $sheet = $this->Sheets->get($id);
+        $sheet->sheetvalidated = true; // Mettez à jour la valeur en fonction de vos besoins
+        if ($this->Sheets->save($sheet)) {
+            $this->Flash->success(__('Fiche validée avec succès.'));
+        } else {
+            $this->Flash->error(__('Impossible de valider la fiche. Veuillez réessayer.'));
+        }
+        return $this->redirect(['action' => 'comptableview', $id]);
+    }
+    
+    public function unvalidate($id = null)
+    {
+        $sheet = $this->Sheets->get($id);
+        $sheet->sheetvalidated = false;
+        $this->Sheets->save($sheet);
+
+        // Redirigez ou effectuez d'autres actions après la dévalidation.
+        $this->Flash->success(__('Feuille non validée avec succès.'));
+        return $this->redirect(['action' => 'comptableview', $id]);
     }
 
 

@@ -121,7 +121,7 @@ return [
             'prefix' => false,
             'plugin' => null, // Assuming the controller is not in a plugin
             'controller' => 'Sheets',
-            'action' => ['comptableview','comptablelist','edit'],
+            'action' => ['comptableview','comptablelist','edit','validate','unvalidate'],
             'bypassAuth' => true,
         ],
         //admin role allowed to all the things
